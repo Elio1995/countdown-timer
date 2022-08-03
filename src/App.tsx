@@ -39,8 +39,8 @@ function App() {
     }
   
     timerComponents.push(
-      <span>
-        {timeLeft[interval]} {interval}{" "}
+      <span className="grid">
+        {timeLeft[interval]} <span >{interval}{" "}</span>
       </span>
     );
   });
@@ -48,7 +48,7 @@ function App() {
   
     return (
         <div className="App">
-             <div>
+             <div className="grid grid-cols-4 gap-8">
              {timerComponents.length ? timerComponents : <span>Time's up!</span>}
             </div>
         </div>
