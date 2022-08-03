@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react"
-import '../App.css'
+import React, { useEffect, useState } from "react";
+import "../App.css";
 
 function Timer() {
-
   const calculateTimeLeft = () => {
     let year = new Date().getFullYear();
     const difference = +new Date(`08/04/${year}`) - +new Date();
@@ -14,7 +13,7 @@ function Timer() {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60)
+        seconds: Math.floor((difference / 1000) % 60),
       };
     }
 
@@ -37,22 +36,21 @@ function Timer() {
     if (!timeLeft[interval]) {
       return;
     }
-  
+
     timerComponents.push(
       <span className="grid">
-        {timeLeft[interval]} <span >{interval}{" "}</span>
+        {timeLeft[interval]} <span>{interval} </span>
       </span>
     );
   });
- 
-  
-    return (
-        <div className="App">
-             <div className="grid grid-cols-4 gap-8">
-             {timerComponents.length ? timerComponents : <span>Time's up!</span>}
-            </div>
-        </div>
-    )
+
+  return (
+    <div className="App">
+      <div className="grid grid-cols-4 gap-8">
+        {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+      </div>
+    </div>
+  );
 }
-  
+
 export default Timer;
