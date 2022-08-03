@@ -6,7 +6,12 @@ function Timer() {
     let year = new Date().getFullYear();
     const difference = +new Date(`08/04/${year}`) - +new Date();
 
-    let timeLeft = {};
+    let timeLeft: {
+      days: number | string;
+      hours: number | string;
+      minutes: number | string;
+      seconds: number | string;
+    } = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
     if (difference > 0) {
       timeLeft = {
@@ -30,7 +35,7 @@ function Timer() {
     return () => clearTimeout(timer);
   });
 
-  const timerComponents = [];
+  const timerComponents: any[] = [];
 
   Object.keys(timeLeft).forEach((interval) => {
     if (!timeLeft[interval]) {
@@ -38,17 +43,15 @@ function Timer() {
     }
 
     timerComponents.push(
-      <span className="grid">
+      <span key={timeLeft[interval]} className="grid">
         {timeLeft[interval]} <span>{interval} </span>
       </span>
     );
   });
 
   return (
-    <div className="App">
-      <div className="grid grid-cols-4 gap-8">
-        {timerComponents.length ? timerComponents : <span>Time's up!</span>}
-      </div>
+    <div className="grid grid-cols-4 gap-8">
+      {timerComponents.length ? timerComponents : <span>Time's up!</span>}
     </div>
   );
 }
