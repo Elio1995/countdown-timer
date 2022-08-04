@@ -52,7 +52,7 @@ function Timer() {
   });
 
   return (
-    <div className="grid grid-cols-4 gap-8">
+    <div className="grid grid-cols-4 gap-8 w-fit">
       {timerComponents.length ? timerComponents : <span>Time's up!</span>}
     </div>
   );
