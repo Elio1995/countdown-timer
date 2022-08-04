@@ -20,7 +20,7 @@ function Timer() {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
+        seconds: !0 ? Math.floor((difference / 1000) % 60) : 0,
       };
     }
 
@@ -45,14 +45,15 @@ function Timer() {
     }
 
     timerComponents.push(
-      <span key={timeLeft[interval as keyof time]} className="grid">
-        {timeLeft[interval as keyof time]} <span>{interval} </span>
+      <span key={timeLeft[interval as keyof time]} className="grid font-bold">
+        <span className="text-7xl">{timeLeft[interval as keyof time]}</span>{" "}
+        <span>{interval} </span>
       </span>
     );
   });
 
   return (
-    <div className="grid grid-cols-4 gap-8 w-fit">
+    <div className="grid grid-cols-4 gap-8 w-fit mb-52">
       {timerComponents.length ? timerComponents : <span>Time's up!</span>}
     </div>
   );
