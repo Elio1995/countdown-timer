@@ -7,13 +7,13 @@ function Footer() {
       <div className="w-56 mt-24">
         <div className="grid grid-cols-3">
           <a href="https://www.facebook.com/">
-            <img src="../../dist/images/icon-facebook.svg" />
+            <img src="../images/icon-facebook.svg" />
           </a>
           <a href="https://www.pinterest.com/">
-            <img src="../../dist/images/icon-pinterest.svg" />
+            <img src="../images/icon-pinterest.svg" />
           </a>
           <a href="https://www.instagram.com/">
-            <img src="../../dist/images/icon-instagram.svg" />
+            <img src="../images/icon-instagram.svg" />
           </a>
         </div>
       </div>
