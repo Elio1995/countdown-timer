@@ -13,18 +13,34 @@ function Timer() {
     let year = new Date().getFullYear();
     const difference = +new Date(`08/10/${year}`) - +new Date();
 
-    let timeLeft: time = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    let timeToReach: time = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
     if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: !0 ? Math.floor((difference / 1000) % 60) : 0,
+      timeToReach = {
+        days: 0
+          ? 0
+          : Math.floor(difference / (1000 * 60 * 60 * 24)) < 10
+          ? `0${Math.floor(difference / (1000 * 60 * 60 * 24))}`
+          : Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: 0
+          ? 0
+          : Math.floor((difference / (1000 * 60 * 60)) % 24) < 10
+          ? `0${Math.floor((difference / (1000 * 60 * 60)) % 24)}`
+          : Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: 0
+          ? 0
+          : Math.floor((difference / 1000 / 60) % 60) < 10
+          ? `0${Math.floor((difference / 1000 / 60) % 60)}`
+          : Math.floor((difference / 1000 / 60) % 60),
+        seconds: 0
+          ? 0
+          : Math.floor((difference / 1000) % 60) < 10
+          ? `0${Math.floor((difference / 1000) % 60)}`
+          : Math.floor((difference / 1000) % 60),
       };
     }
 
-    return timeLeft;
+    return timeToReach;
   };
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
@@ -46,16 +62,36 @@ function Timer() {
 
     timerComponents.push(
       <span key={timeLeft[interval as keyof time]} className="grid font-bold">
-        <span className="text-7xl">{timeLeft[interval as keyof time]}</span>{" "}
-        <span>{interval} </span>
+        <span
+          style={{
+            background: "hsl(236, 21%, 26%)",
+            color: "hsl(345, 95%, 68%)",
+            borderRadius: "10px",
+            boxShadow: "0px 10px 8px -1px black",
+          }}
+          className="text-7xl px-5 py-6 mb-4"
+        >
+          {timeLeft[interval as keyof time]}
+        </span>
+        <span className="uppercase">{interval} </span>
       </span>
     );
   });
 
   return (
-    <div className="grid grid-cols-4 gap-8 w-fit mb-52">
-      {timerComponents.length ? timerComponents : <span>Time's up!</span>}
-    </div>
+    <>
+      {timerComponents.length ? (
+        <div className="grid grid-cols-4 gap-8 w-fit mb-52">
+          {timerComponents}
+        </div>
+      ) : (
+        <div className="text-center mb-52">
+          <span className="title font-bold mb-32 text-2xl tracking-widest text-center">
+            Time's up!
+          </span>
+        </div>
+      )}
+    </>
   );
 }
 
