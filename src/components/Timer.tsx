@@ -11,7 +11,7 @@ interface time {
 function Timer() {
   const calculateTimeLeft = () => {
     let year = new Date().getFullYear();
-    const difference = +new Date(`08/10/${year}`) - +new Date();
+    const difference = +new Date(`10/20/${year}`) - +new Date();
 
     let timeToReach: time = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
