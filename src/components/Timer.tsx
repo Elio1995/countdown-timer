@@ -62,18 +62,10 @@ function Timer() {
 
     timerComponents.push(
       <span key={timeLeft[interval as keyof time]} className="grid font-bold">
-        <span
-          style={{
-            background: "hsl(236, 21%, 26%)",
-            color: "hsl(345, 95%, 68%)",
-            borderRadius: "10px",
-            boxShadow: "0px 10px 8px -1px black",
-          }}
-          className="text-7xl px-5 py-6 mb-4"
-        >
+        <span className="timeNumber text-7xl px-6 py-7 mb-5">
           {timeLeft[interval as keyof time]}
         </span>
-        <span className="uppercase">{interval} </span>
+        <span className="time uppercase text-sm">{interval}</span>
       </span>
     );
   });

@@ -19,3 +19,15 @@
 .title {
   font-family: Red Hat Text;
 }
+.time {
+  font-family: Red Hat Text;
+  letter-spacing: 5px;
+  color: hsl(225, 21%, 50%);
+}
+
+.timeNumber {
+  background: hsl(236, 21%, 26%);
+  color: hsl(345, 95%, 68%);
+  border-radius: 10px;
+  box-shadow: 0px 10px 8px -1px black;
+}
