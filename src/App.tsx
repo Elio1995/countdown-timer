@@ -7,9 +7,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <p className="title font-bold mb-32 text-2xl tracking-widest">
-          WE'RE LAUNCHING SOON
-        </p>
+        <p className="title font-bold mb-32 text-2xl">WE'RE LAUNCHING SOON</p>
         <Timer />
         <Footer />
       </div>

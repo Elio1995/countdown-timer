@@ -61,8 +61,11 @@ function Timer() {
     }
 
     timerComponents.push(
-      <span key={timeLeft[interval as keyof time]} className="grid font-bold">
-        <span className="timeNumber text-7xl px-6 py-7 mb-5">
+      <span
+        key={timeLeft[interval as keyof time]}
+        className="grid font-bold place-content-center"
+      >
+        <span className="timeNumber text-7xl mb-5">
           {timeLeft[interval as keyof time]}
         </span>
         <span className="time uppercase text-sm">{interval}</span>
@@ -73,7 +76,7 @@ function Timer() {
   return (
     <>
       {timerComponents.length ? (
-        <div className="grid grid-cols-4 gap-8 w-fit mb-52">
+        <div className="timerContainer grid grid-cols-4 gap-8 w-fit mb-52">
           {timerComponents}
         </div>
       ) : (
